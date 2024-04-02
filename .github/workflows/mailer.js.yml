@@ -35,7 +35,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: CV
-        path: cv/cv.pdf
+        path: cv/
 
     - name: Setup Node.js
       uses: actions/setup-node@v3
