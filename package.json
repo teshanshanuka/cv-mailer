@@ -1,0 +1,12 @@
+{
+  "name": "cv-mailer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Teshan Liyanage <teshanuka@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "nodemailer": "^6.9.13"
+  }
+}
