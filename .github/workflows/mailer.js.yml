@@ -22,7 +22,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: CV
-        path: cv/cv.pdf
+        path: cv.pdf
 
   send_mail:
     needs: build_pdf
