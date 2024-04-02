@@ -23,4 +23,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: set -o allexport && . ./.env && set +o allexport && node index.js
+    - env:
+        APP_EMAIL: ${{ secrets.APP_EMAIL }}
+        APP_PWD: ${{ secrets.APP_PWD }}
+        TO_EMAIL: ${{ secrets.TO_EMAIL }}
+      run: set -o allexport && . ./.env && set +o allexport && node index.js
