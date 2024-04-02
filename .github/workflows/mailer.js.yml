@@ -1,13 +1,30 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Node.js CI
+name: Build CV and send mail
 
 on: push
 
 jobs:
-  build:
+  build_pdf:
+    runs-on: ubuntu-22.04
 
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - uses: xu-cheng/latex-action@v3
+      with:
+        root_file: cv/cv.tex
+        latexmk_use_lualatex: true
+
+    - name: Upload PDF artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: CV
+        path: cv/cv.pdf
+
+  send_mail:
     runs-on: ubuntu-22.04
 
     strategy:
